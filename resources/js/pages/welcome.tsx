@@ -23,7 +23,7 @@ const navigation = {
   categories: [
     {
       id: 'women',
-      name: 'Women',
+      name: 'Mujer',
       featured: [
         {
           name: 'New Arrivals',
@@ -81,7 +81,7 @@ const navigation = {
     },
     {
       id: 'men',
-      name: 'Men',
+      name: 'Hombre',
       featured: [
         {
           name: 'New Arrivals',
@@ -153,7 +153,6 @@ export default function Welcome() {
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
-            <div className="bg-white">
       {/* Mobile menu */}
       <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
@@ -432,12 +431,9 @@ export default function Welcome() {
             </div>
           </div>
         </nav>
-
-
-        
       </header>
-        <Hero /> 
-    </div>
-        </>
+        <Hero />
+        <InlineProducts />
+      </>
     );
 }
