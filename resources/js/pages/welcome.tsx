@@ -1,4 +1,3 @@
-import InlineProducts from '@/sections/InlineProducts';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import {
@@ -144,7 +143,6 @@ const navigation = {
 }
 
 export default function Welcome() {
-    const { auth } = usePage<SharedData>().props;
     const [open, setOpen] = useState(false)
 
     return (
