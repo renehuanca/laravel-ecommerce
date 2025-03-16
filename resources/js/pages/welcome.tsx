@@ -16,130 +16,136 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, Fragment } from 'react';
+
 import Hero from '@/sections/Hero';
+import AppLogoIcon from '@/components/app-logo-icon';
+import { Button } from '@/components/ui/button';
+import { Gift } from 'lucide-react';
+import InlineProducts from '@/sections/InlineProducts';
 
 const navigation = {
   categories: [
+{
+  id: 'mujeres',
+  name: 'Mujeres',
+  featured: [
     {
-      id: 'women',
-      name: 'Women',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg',
-          imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
-        },
-        {
-          name: 'Basic Tees',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
-          ],
-        },
+      name: 'Nuevas Llegadas',
+      href: '#',
+      imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg',
+      imageAlt: 'Modelos sentadas espalda con espalda, usando camisetas básicas en negro y beige.',
+    },
+    {
+      name: 'Camisetas Básicas',
+      href: '#',
+      imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg',
+      imageAlt: 'Vista de cerca del paquete de camisetas básicas en blanco roto, ocre, oliva y negro.',
+    },
+  ],
+  sections: [
+    {
+      id: 'ropa',
+      name: 'Ropa',
+      items: [
+        { name: 'Tops', href: '#' },
+        { name: 'Vestidos', href: '#' },
+        { name: 'Pantalones', href: '#' },
+        { name: 'Mezclilla', href: '#' },
+        { name: 'Suéteres', href: '#' },
+        { name: 'Camisetas', href: '#' },
+        { name: 'Chaquetas', href: '#' },
+        { name: 'Ropa Deportiva', href: '#' },
+        { name: 'Ver Todo', href: '#' },
       ],
     },
     {
-      id: 'men',
-      name: 'Men',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc:
-            'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-          imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-        },
+      id: 'accesorios',
+      name: 'Accesorios',
+      items: [
+        { name: 'Relojes', href: '#' },
+        { name: 'Carteras', href: '#' },
+        { name: 'Bolsos', href: '#' },
+        { name: 'Gafas de Sol', href: '#' },
+        { name: 'Sombreros', href: '#' },
+        { name: 'Cinturones', href: '#' },
       ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
+    },
+    {
+      id: 'marcas',
+      name: 'Marcas',
+      items: [
+        { name: 'Full Nelson', href: '#' },
+        { name: 'My Way', href: '#' },
+        { name: 'Re-Arranged', href: '#' },
+        { name: 'Counterfeit', href: '#' },
+        { name: 'Significant Other', href: '#' },
       ],
     },
   ],
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
+},
+{
+  id: 'hombres',
+  name: 'Hombres',
+  featured: [
+    {
+      name: 'Nuevas Llegadas',
+      href: '#',
+      imageSrc:
+        'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+      imageAlt: 'Parte superior con cordón y cierre de lazo elástico con acolchado interior texturizado.',
+    },
+    {
+      name: 'Camisetas con Arte',
+      href: '#',
+      imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg',
+      imageAlt:
+        'Tres camisetas en gris, blanco y azul dispuestas en una mesa con el mismo dibujo lineal de manos y formas superpuestas en la parte delantera de la camiseta.',
+    },
   ],
+  sections: [
+    {
+      id: 'ropa',
+      name: 'Ropa',
+      items: [
+        { name: 'Tops', href: '#' },
+        { name: 'Pantalones', href: '#' },
+        { name: 'Suéteres', href: '#' },
+        { name: 'Camisetas', href: '#' },
+        { name: 'Chaquetas', href: '#' },
+        { name: 'Ropa Deportiva', href: '#' },
+        { name: 'Ver Todo', href: '#' },
+      ],
+    },
+    {
+      id: 'accesorios',
+      name: 'Accesorios',
+      items: [
+        { name: 'Relojes', href: '#' },
+        { name: 'Carteras', href: '#' },
+        { name: 'Bolsos', href: '#' },
+        { name: 'Gafas de Sol', href: '#' },
+        { name: 'Sombreros', href: '#' },
+        { name: 'Cinturones', href: '#' },
+      ],
+    },
+    {
+      id: 'marcas',
+      name: 'Marcas',
+      items: [
+        { name: 'Re-Arranged', href: '#' },
+        { name: 'Counterfeit', href: '#' },
+        { name: 'Full Nelson', href: '#' },
+        { name: 'My Way', href: '#' },
+      ],
+    },
+  ],
+},
+],
+pages: [
+  { name: 'Empresa', href: '#' },
+  { name: 'Tiendas', href: '#' },
+],
+
 }
 
 export default function Welcome() {
@@ -258,26 +264,30 @@ export default function Welcome() {
                 </a>
               </div>
             </div>
-
-            <div className="border-t border-gray-200 px-4 py-6">
-              <a href="#" className="-m-2 flex items-center p-2">
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/flags/flag-españa.svg"
-                  className="block h-auto w-5 shrink-0"
-                />
-                <span className="ml-3 block text-base font-medium text-gray-900">BO</span>
-                <span className="sr-only">, change currency</span>
-              </a>
-            </div>
           </DialogPanel>
         </div>
       </Dialog>
 
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          <div className='bg-[#204771]'>
+        <p className="flex h-10 items-center justify-between text-sm font-medium text-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <span>
+              <Gift className="inline h-4 w-4 mr-2" />
+              Obtenga envío gratuito en pedidos superiores a 700Bs.
+            </span>
+            <div className="border-t border-gray-200 px-4 py-6">
+              <a href="#" className="-m-2 flex items-center p-2">
+                <img
+                  alt=""
+                  src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg"
+                  className="block h-auto w-5 shrink-0"
+                />
+                <span className="ml-3 block text-base font-medium">BO</span>
+                <span className="sr-only">, change currency</span>
+              </a>
+            </div> 
         </p>
+          </div>
 
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
@@ -288,19 +298,15 @@ export default function Welcome() {
                 className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
               >
                 <span className="absolute -inset-0.5" />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">Abrir Menu</span>
                 <Bars3Icon aria-hidden="true" className="size-6" />
               </button>
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    alt=""
-                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                    className="h-8 w-auto"
-                  />
+                  <span className="sr-only">Ecommerce</span>
+                  <AppLogoIcon className='h-8 w-auto'/>
                 </a>
               </div>
 
@@ -387,24 +393,14 @@ export default function Welcome() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link href={route('login')} className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
+                    Iniciar Sesión
                   </Link>
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                   <Link href={route('register')} className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                    <Button variant={'secondary'}>
+                    Crear Cuenta
+                    </Button>
                   </Link>
-                </div>
-
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
-                    <img
-                      alt=""
-                      src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg"
-                      className="block h-auto w-5 shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
                 </div>
 
                 {/* Search */}
@@ -430,12 +426,12 @@ export default function Welcome() {
             </div>
           </div>
         </nav>
-
-
-        
       </header>
-        <Hero /> 
+
     </div>
+
+      <Hero />
+      <InlineProducts />
         </>
     );
 }
