@@ -277,11 +277,7 @@ export default function Welcome() {
             </span>
             <div className="border-t border-gray-200 px-4 py-6">
               <a href="#" className="-m-2 flex items-center p-2">
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg"
-                  className="block h-auto w-5 shrink-0"
-                />
+                <img src="https://flagcdn.com/bo.svg" alt="Flag of Bolivia" className="block h-auto w-5 shrink-0"></img>
                 <span className="ml-3 block text-base font-medium">BO</span>
                 <span className="sr-only">, change currency</span>
               </a>
