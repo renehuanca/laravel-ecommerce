@@ -21,6 +21,8 @@ import { Button } from '@/components/ui/button';
 import Hero from '@/sections/Hero';
 import InlineProducts from '@/sections/InlineProducts';
 import { Gift } from 'lucide-react';
+import Cart from '@/sections/Cart';
+import SearchModal from '@/components/SearchModal';
 
 const navigation = {
     categories: [
@@ -147,6 +149,8 @@ const navigation = {
 
 export default function Welcome() {
     const [open, setOpen] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
 
     return (
         <>
@@ -394,17 +398,19 @@ export default function Welcome() {
                                         </Link>
                                     </div>
 
-                                    {/* Search */}
-                                    <div className="flex lg:ml-6">
-                                        <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                                            <span className="sr-only">Search</span>
-                                            <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-                                        </a>
-                                    </div>
+                                    {/* Search Button */}
+                                    <button
+                                        type="button"
+                                        onClick={() => setOpenSearch(true)}
+                                        className="ml-4 p-2 text-gray-400 hover:text-gray-500"
+                                    >
+                                        <span className="sr-only">Buscar</span>
+                                        <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+                                    </button>
 
                                     {/* Cart */}
                                     <div className="ml-4 flow-root lg:ml-6">
-                                        <a href="#" className="group -m-2 flex items-center p-2">
+                                        <a href="#" onClick={() => setOpenCart(true)} className="group -m-2 flex items-center p-2">
                                             <ShoppingBagIcon aria-hidden="true" className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" />
                                             <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                                             <span className="sr-only">items in cart, view bag</span>
@@ -419,6 +425,8 @@ export default function Welcome() {
 
             <Hero />
             <InlineProducts />
+            <Cart open={openCart} setOpen={setOpenCart} />
+            <SearchModal open={openSearch} setOpen={setOpenSearch} />
         </>
     );
 }
